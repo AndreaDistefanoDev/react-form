@@ -5,6 +5,12 @@ export default function AppMain() {
 
     const [newAtricle, setNewArticle] = useState('')
     const [articles, setArticles] = useState(initialArticles)
+    function removeArticle(i) {
+
+        const filteredArtticles = articles.filter((article, index) => index !== i)
+        setArticles(filteredArtticles)
+
+    }
     function submit(e) {
         e.preventDefault()
         setArticles([...articles, newAtricle])
@@ -25,13 +31,17 @@ export default function AppMain() {
 
                     <hr />
 
-                    <ul className="list-group">
+                    {articles.length === 0 ? (<div className="text-uppercase">nessun articolo presente</div>) : (<ul className="list-group">
                         {articles.map((article, i) =>
-                            <li className="list-group-item" key={i}>
+                            <li className="list-group-item d-flex justify-content-between" key={i}>
                                 {article}
+                                <button className="btn btn-dark" onClick={() => removeArticle(i)}>
+                                    <i className="bi bi-trash-fill"></i>
+                                </button>
                             </li>
                         )}
-                    </ul>
+                    </ul>)}
+
 
                 </div>
             </div>
