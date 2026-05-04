@@ -5,20 +5,31 @@ export default function AppMain() {
 
     const [newAtricle, setNewArticle] = useState('')
     const [articles, setArticles] = useState(initialArticles)
+    function submit(e) {
+        e.preventDefault()
+        setArticles([...articles, newAtricle])
+        setNewArticle('')
+
+    }
     return (
         <>
 
             <div className="container">
                 <div className="card p-3">
-                    <input type="text" className="form-contro mb-2" value={newAtricle} onChange={e => setNewArticle(e.target.value)} />
-                    <div className="d-flex justify-content-center">
-                        <button className="text-uppercase btn btn-dark"><i className="bi bi-plus-circle"></i> aggiungi</button>
-                    </div>
+                    <form action="" onSubmit={submit}>
+                        <input type="text" className="form-control mb-2" value={newAtricle} onChange={e => setNewArticle(e.target.value)} />
+                        <div className="d-flex justify-content-center">
+                            <button className="text-uppercase btn btn-dark"><i className="bi bi-plus-circle"></i> aggiungi</button>
+                        </div>
+                    </form>
+
                     <hr />
 
-                    <ul class="list-group">
+                    <ul className="list-group">
                         {articles.map((article, i) =>
-                            <li class="list-group-item" key={i}>{article}</li>
+                            <li className="list-group-item" key={i}>
+                                {article}
+                            </li>
                         )}
                     </ul>
 
