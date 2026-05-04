@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import * as bootstrap from 'bootstrap'
+import '@fontsource/bebas-neue';
+import '@fontsource/cal-sans';
 import './index.css'
 import App from './App.jsx'
 
