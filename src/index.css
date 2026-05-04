@@ -1,0 +1,11 @@
+@import url('bootstrap');
+@import url('bootstrap-icons');
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+body {
+  font-family: 'Cal Sans', sans-serif;
+
+}
